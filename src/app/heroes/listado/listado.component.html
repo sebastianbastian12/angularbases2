@@ -1,0 +1,29 @@
+<p>listado de heroes</p>
+
+<ul>
+    <!-- (*ngIf) ayuda aplicar una condicion a una parte
+l  de nuestro codigo, como este div que mostrara
+a info o no dependiendo del valor de la condicion -->
+
+    <div *ngIf="heroeBorrado !== ''; else noBorrado">
+        <h3>Heroe Borrado:<small>{{heroeBorrado}}</small></h3>
+    </div>
+    <!-- ng-template mas #example es una referencia local
+para determinar otra condicional, como un else if-->
+    <ng-template #noBorrado>
+        <h3>No has borrado nada.</h3>
+    </ng-template>
+
+
+
+    <button (click)="borrarHeroe()">
+  Borrar Heroe
+    </button>
+    <!-- (*ngFor) ayudará a multiplicar elementos dependiendo
+de su numero de elementos en el array y asignarles valores como
+a continuacion -->
+    <li *ngFor='let heroe of heroes; let i = index'>
+        {{i+1}} - {{heroe}}
+    </li>
+
+</ul>
